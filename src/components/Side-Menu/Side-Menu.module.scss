@@ -1,0 +1,106 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+.side_menu_container {
+  @include dis-flex(null, null, $gap-xs, column, null, 1, 0);
+  @include pos-sticky(top, left, $gap-xs, 0%, 1, fit-content, fit-content);
+
+  .side_menu_profile {
+    @include dis-flex(center, center, $gap-xs);
+    @include container();
+    padding: $padding-m $padding-xl;
+    height: fit-content;
+    color: #ffffffff;
+
+    &:hover {
+      background-color: rgb(64, 64, 64);
+    }
+
+    .side_menu_profile_avatar {
+      width: 3rem;
+      height: 3rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .side_menu_actions_container {
+    @include dis-flex(null, null, $gap-xs);
+
+    > button {
+      @include container();
+      padding: $padding-m $padding-xl;
+      flex-grow: 1;
+      color: #ffffffff;
+    
+      &:hover {
+        background-color: rgb(64, 64, 64);
+      }
+    }
+  }
+
+  .side_menu_group_data_container {
+    @include container();
+    height: fit-content;
+    color: #ffffffff;
+
+    .side_menu_header {
+      @include dis-flex(center, center);
+      padding: $padding-l $padding-xxl;
+      text-align: center;
+      border-bottom: 1px solid rgb(64, 64, 64);
+      background-position: center;
+      background-size: cover;
+
+      > a {
+        font-size: $font-xxl;
+        font-weight: 700;
+        color: #ffffffff;
+      }
+    }
+
+    .side_menu_chat_list {
+      @include dis-flex(null, null, null, column);
+    
+      > li {
+        @include dis-flex(center);
+        border-bottom: 1px solid rgb(64, 64, 64);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .side_menu_chat_data {
+          @include dis-flex(center, space-between, null, null, null, 1);
+          padding: $padding-s $padding-l;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgb(64, 64, 64);
+          }
+
+          .side_menu_messages_count {
+            padding: $padding-xs $padding-l;
+            border-radius: $border-radius-l;
+            color: #000000ff;
+            background-color: #ffffffff;
+          }
+        }
+
+        .side_menu_chat_config {
+          min-height: 46px;
+          border-left: 1px solid rgb(64, 64, 64);
+          color: #ffffffff;
+          
+          &:hover {
+            background-color: rgb(64, 64, 64);
+          }
+        }
+      }
+    }
+  }
+}
+
+.side_menu_chat_active {
+  background-color: rgb(64, 64, 64);
+}
