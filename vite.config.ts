@@ -8,12 +8,12 @@ import vite from "./vite/vite";
 import resolve from "./vite/utils/resolve.util";
 
 const DEV_PLUGINS: (Plugin<any> | Plugin<any>[])[] = [
-	vite.plugins.webFont([]),
+	vite.plugins.webFont(["https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"]),
 	vite.plugins.reactSwc(),
 ];
 
 const PROD_PLUGINS: (Plugin<any> | PluginOption[])[] = [
-	vite.plugins.webFont([]),
+	vite.plugins.webFont(["https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"]),
 	vite.plugins.reactSwc(),
 	vite.plugins.imageMin(),
 	vite.plugins.htmlPlugin(),

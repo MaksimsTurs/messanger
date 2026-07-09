@@ -1,7 +1,10 @@
 @use "../variables" as *;
+@use "../mixins.scss" as *;
 
 * {
-	user-select: none;
+	font-family: "Open Sans", sans-serif;
+  // font-family: "Roboto Mono", sans-serif;
+  user-select: none;
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
@@ -16,11 +19,19 @@
 	}
 }
 
+img {
+  display: block;
+}
+
+p {
+  width: fit-content;
+}
 
 body, 
 html {
 	height: 100%;
 	width: 100%;
+  background-color: rgba(32, 32, 32);
 }
 
 header, 
@@ -30,6 +41,7 @@ footer {
 }
 
 main {
+  padding: $padding-s;
 	flex-grow: 1;
 }
 
@@ -50,7 +62,8 @@ ul {
 }
 
 button {
-	font-family: $font-xl;
+  @include dis-flex(center, center);
+	font-size: $font-l;
 	background-color: transparent;
 	border: none;
 	width: fit-content;
