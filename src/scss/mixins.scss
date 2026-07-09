@@ -1,5 +1,11 @@
 @use "variables" as *;
 
+@mixin container() {
+  border-radius: $border-radius-l;
+  background-color: rgba(48, 48, 48);
+  overflow: hidden;
+}
+
 @mixin pos-abs(
   $first-pos-prop,
   $second-pos-prop,
@@ -9,8 +15,8 @@
 	$width:          100%, 
 	$height:         100%
 ) {
-  #{$first-pos-prop}:  $left;
-  #{$second-pos-prop}: $top;
+  #{$first-pos-prop}:  $first-pos-val;
+  #{$second-pos-prop}: $second-pos-val;
   width:              $width;
   height:             $height;
   z-index:            $z-index;
@@ -43,8 +49,8 @@
 	$width:          100%, 
 	$height:         100%
 ) {
-  #{$first-pos-prop}:  $left;
-  #{$second-pos-prop}: $top;
+  #{$first-pos-prop}:  $first-pos-val;
+  #{$second-pos-prop}: $second-pos-val;
   width:              $width;
   height:             $height;
   z-index:            $z-index;
