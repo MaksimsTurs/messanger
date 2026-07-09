@@ -3,14 +3,11 @@ import { render } from "@testing-library/react";
 import { Fragment } from "react/jsx-runtime";
 
 import IndexRouteIsUsedError from "../utils/Index-Route-Is-Used-Error.util";
-
-import { initRouteComponents, Routes } from "../use-react-router.hook";
-
 import ExecutionOutsideContextError from "../utils/Execution-Outside-Context-Error.util";
 
+import { Routes, Route } from "../use-react-router.hook";
+
 test("Test if error is throwing when defining multiple Routes as index.", function() {
-  const { Route } = initRouteComponents();
-  
   expect(() =>
     render(
       <Routes>
@@ -22,8 +19,6 @@ test("Test if error is throwing when defining multiple Routes as index.", functi
 });
 
 test("Test if error is throwing when rendering component outside the Context.", function() {
-  const { Route } = initRouteComponents();
-  
   expect(() =>
     render(
       <Fragment>
@@ -35,8 +30,6 @@ test("Test if error is throwing when rendering component outside the Context.", 
 });
 
 test("Test if children that is setted as index is rendered.", function() {
-  const { Route } = initRouteComponents();
-  
   const VDOM = render(
     <Routes>
       <Route index path="/" children="Home"/>
