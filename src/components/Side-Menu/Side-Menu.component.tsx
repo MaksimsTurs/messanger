@@ -12,7 +12,7 @@ export default function SideMenu(): ReactNode {
   return(
     <aside className={scss.side_menu_container}>
       <Link href="/user/1" className={scss.side_menu_profile}>
-        <img className={scss.side_menu_profile_avatar} src="Wallpaper.jpg"/>
+        <img className={scss.side_menu_profile_avatar} src="/Wallpaper.jpg"/>
         <p>Max Musterman</p>
       </Link>
       <div className={scss.side_menu_actions_container}>
