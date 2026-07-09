@@ -1,0 +1,69 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+.input_message_container {
+  @include container();
+  padding: $padding-s;
+  height: 100%;
+
+  .input_message_body {
+    position: relative;
+    
+    .input_message_actions {
+      @include dis-flex(null, null, $gap-xs);
+      @include pos-abs(top, right, 45%, 0%, 100%, fit-content);
+      margin-right: $margin-s;
+      transform: translateY(-50%);
+
+      > button {
+        color: #ffffffff;
+      }
+    }
+
+    .input_message {
+      font-size: $font-l;
+      border-radius: $border-radius-s;
+      resize: none;
+      width: 100%;
+      max-height: auto;
+      overflow-y: hidden;
+      background-color: rgb(64, 64, 64);
+      color: #ffffffff;
+      padding: $padding-s calc($padding-xxxxl * 2.25) $padding-s $padding-l;
+ 
+      &::placeholder {
+        color: rgb(164, 164, 164);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .input_message_emojis_list {
+    @include dis-flex(null, null, $gap-xs, column);
+
+    .input_message_emoji_name {
+      font-size: $font-xxl;
+      padding: $padding-s;
+      width: 100%;
+      color: #ffffffff;
+      font-weight: 600;
+      border-bottom: 1px solid rgb(64, 64, 64);
+      border-top: 1px solid rgb(64, 64, 64);
+    }
+
+    .input_message_emoji_list {
+      @include dis-flex(null, null, null, null, wrap);
+
+      > li > button {
+        font-size: $font-xxxl;
+
+        &:hover {
+          background-color: rgb(64, 64, 64);
+        }
+      }
+    }
+  }
+}

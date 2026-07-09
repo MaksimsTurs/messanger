@@ -1,0 +1,39 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+.message_list {
+  @include dis-flex(null, null, $gap-xs, column);
+}
+
+.message_item {
+  @include dis-flex(null, null, $gap-xs);
+  color: #ffffffff;
+
+  > img {
+    border-radius: $border-radius-xxxxl;
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+  }
+
+  .message_data {
+    @include container();
+    height: fit-content;
+
+    .message_header {
+      @include dis-flex(center, space-between, $gap-xs);
+      border-bottom: 1px solid rgb(64, 64, 64);
+      padding: $gap-xs $gap-l;
+
+      > p:first-child {
+        font-size: $font-xxxl;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .message_body {
+    padding: $gap-xs $gap-l;
+    color: rgb(192, 192, 192);
+  }
+}
