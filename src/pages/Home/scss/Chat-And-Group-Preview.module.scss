@@ -1,0 +1,54 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+.group_or_chat_preview_item {
+  border-bottom: 1px solid rgb(64, 64, 64);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .group_or_chat_preview_body {
+    @include dis-flex(center, null, $gap-l);
+    padding: $padding-l $padding-xl;
+
+    .group_or_chat_icon {
+      border-radius: $border-radius-xxxxl;
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
+    }
+    
+    .group_or_chat_header {
+      @include dis-flex(center, space-between);
+
+      > a {
+        font-size: $font-xxl;
+        font-weight: bold;
+        color: #ffffffff;
+      }
+
+      .group_or_chat_last_message_time {
+        @include dis-flex(center, space-between, $gap-xs);
+        color: #ffffffff;
+
+        > button {
+          @include dis-flex(center, center, $gap-l);
+          color: #ffffffff;
+        }
+      }
+    }
+
+    .group_or_chat_last_message {
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      width: 100%;
+      text-align: left;
+      display: -webkit-box;
+      line-clamp: 3;
+      overflow: hidden;
+      color: rgb(164, 164, 164);
+    }
+  }
+}
+
