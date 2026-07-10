@@ -1,0 +1,37 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+.user_profile_container {
+  @include dis-flex(center, center, $gap-xs, column);
+  height: 100%;
+
+  .user_profile_data {
+    @include container();
+    @include dis-flex(center, space-between, $gap-m);
+    padding: $padding-s;
+    width: 20rem;
+    color: #ffffffff;
+
+    > img {
+      border-radius: $border-radius-l;
+      width: 8rem;
+      height: 8rem;
+      object-fit: cover;
+    }
+  }
+
+  .user_profile_actions {
+    @include dis-flex(center, space-between, $gap-m, null, null);
+
+    > button {
+      @include container();
+      color: #ffffffff;
+      padding: $padding-s;
+      width: 9.5rem;
+
+      &:hover {
+        background-color: rgb(64, 64, 64);
+      }
+    }
+  }
+}
