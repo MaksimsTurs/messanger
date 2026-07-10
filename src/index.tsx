@@ -16,8 +16,6 @@ function App(): ReactNode {
     <main>
       <Routes>
         <Route path="/" children={<Home/>}/>
-      </Routes>
-      <Routes>
         <Route path="/chat/:id" children={<Chat/>}/>
       </Routes>
     </main>

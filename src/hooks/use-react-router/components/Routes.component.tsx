@@ -2,7 +2,7 @@ import type { ReactRouterContextValue } from "../types/use-react-router.type";
 import type { Context, ReactNode, RefObject } from "react";
 import type { RoutesProps } from "../types/Routes.type";
 
-import { createContext, useMemo, useRef, useState } from "react";
+import { createContext, useEffect, useMemo, useRef, useState } from "react";
 
 import IndexRouteIsUsedError from "../utils/Index-Route-Is-Used-Error.util";
 
@@ -38,6 +38,18 @@ export default function Routes<P extends string>({ children }: RoutesProps): Rea
       indexPath.current = path;
     }
   }), [paths]);
+
+  const popstate = (): void => {
+    value.popPath();
+  };
+
+  useEffect(() => {
+    window.addEventListener("popstate", popstate);
+
+    return () => {
+      window.removeEventListener("popstate", popstate);
+    };
+  }, []);
   
   return <ReactRouterContext value={value}>{children}</ReactRouterContext>
 };
