@@ -1,0 +1,16 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+.input_text {
+  @include container();
+  padding: $padding-m $padding-xl;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  color: #ffffffff;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: rgb(64, 64, 64);
+  }
+}

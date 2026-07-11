@@ -2,13 +2,19 @@ import { ReactNode } from "react";
 
 import scss from "./Side-Menu.module.scss";
 
-import { Link } from "@hook/use-react-router/use-react-router.hook";
+import { Link, useNavigate } from "@hook/use-react-router/use-react-router.hook";
 
 import { UserRoundIcon, UsersRoundIcon } from "lucide-react";
 
 import GroupChat from "./components/Group-Chat.component";
 
 export default function SideMenu(): ReactNode {
+  const navigate = useNavigate();
+
+  const goTo = (path: string): void => {
+    navigate(path);
+  };
+
   return(
     <aside className={scss.side_menu_container}>
       <Link href="/user/1" className={scss.side_menu_profile}>
@@ -19,7 +25,7 @@ export default function SideMenu(): ReactNode {
         <button>
           <UserRoundIcon/>
         </button>
-        <button>
+        <button onClick={() => goTo("/group/create")}>
           <UsersRoundIcon/>
         </button>
       </div>

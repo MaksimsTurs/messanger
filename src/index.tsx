@@ -11,14 +11,16 @@ import { ReactStorageProvider } from "./hooks/use-react-storage/use-storage.hook
 import Home from "@page/Home/Page.page";
 import Chat from "@page/Chat/Page.page";
 import User from "@page/User/Page.page";
+import GroupCreate from "@page/Group-Create/Page.page";
 
 function App(): ReactNode {
   return(
     <main>
       <Routes>
-        <Route path="/" children={<Home/>}/>
+        <Route index path="/" children={<Home/>}/>
         <Route path="/chat/:id" children={<Chat/>}/>
         <Route path="/user/:id" children={<User/>}/>
+        <Route path="/group/create" children={<GroupCreate/>}/>
       </Routes>
     </main>
   );

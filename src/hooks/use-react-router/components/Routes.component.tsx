@@ -10,7 +10,7 @@ export const ReactRouterContext: Context<ReactRouterContextValue<any> | undefine
 
 export default function Routes<P extends string>({ children }: RoutesProps): ReactNode {
   const [paths, setPath] = useState<P[]>([location.pathname] as P[]);
-  const patterns: RefObject<Set<string>> = useRef<Set<string>>(new Set<string>())
+  const patterns: RefObject<Set<string>> = useRef<Set<string>>(new Set<string>());
   const indexPath: RefObject<string | undefined> = useRef<string | undefined>(undefined);
 
   const value: ReactRouterContextValue<P> = useMemo(() => ({ 
@@ -22,6 +22,11 @@ export default function Routes<P extends string>({ children }: RoutesProps): Rea
     popPath: function(): void {
       setPath(prev => {
         prev.pop();
+
+        if(prev.length == 0) {
+          return [indexPath.current as P];
+        }
+
         return [...prev];
       });
     },

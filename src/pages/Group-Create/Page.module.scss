@@ -1,0 +1,17 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+.page_form {
+  @include dis-flex(center, null, $gap-xs, column);
+
+  > button {
+    @include container();
+    padding: $padding-m $padding-xxxxl;
+    color: #ffffffff;
+    width: 100%;
+
+    &:hover {
+      background-color: rgb(64, 64, 64);
+    }
+  }
+}

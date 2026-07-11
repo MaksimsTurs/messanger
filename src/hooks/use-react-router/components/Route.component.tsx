@@ -25,7 +25,7 @@ export default function Route<P extends string>({ path, protect, children, fallb
   }, []);
   
   context.addPattern(path);
-  
+
   return(
     isUndefined(protect) ? 
       isPathMatchPattern(path, context.paths.at(-1)) ? 
